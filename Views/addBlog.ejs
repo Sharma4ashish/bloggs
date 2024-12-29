@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./components/nav') %>
+    <div class="container mt-4 bg-grey">
+      <form action="/blog/add-new-blog" method="post" enctype="multipart/form-data">
+        <div class="mt-4 mb-2">
+          <h2 class="mb-4">Create New Blog</h2>
+          <label class="form-label"  >Image</label>
+          <input type="file" name="image" class="form-control" >
+          <label class="form-label"  >Title</label>
+          <input type="text" name="title" class="form-control" >
+
+          <label class="form-label">Content</label>
+          <textarea type="text" name="content" class="form-control" ></textarea>
+        </div>        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+    </div>
+    
+    
+    
+    <%- include('./components/script') %>
+</body>
+</html>

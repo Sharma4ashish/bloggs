@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./components/nav') %>
+    <% if (locals.user) { %>
+        <h3><%- user.name %></h3>
+     
+    <% } %>
+    <% if (locals.blog) { %>
+        <div class="container mt-4">
+            <h1><%= blog.title %></h1>
+            <br>
+            <img src="<%= blog.imageUrl %>" alt="Cover image">
+            <br>
+            <p><%= blog.content %></p>
+        </div>
+        <div class="container mt-4">
+            <h1>Comments</h1>
+            <% if (locals.user) { %>
+                <form action="/blog/comments/<%= blog._id %>" method="post">
+                    <div class="mb-3">
+                    <div class="mb-3">
+                        <input type="text"
+                        placeholder="type your comment"
+                        class="Comment"
+                        name="content">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form> 
+            <% } %>
+        
+        </div>
+       
+    <% } %>
+    <h1>My Blogs </h1>
+    <div class="container mt-4 bg-grey">
+        <% if (locals.blogss) { %>
+            <% blogss.forEach(blogs => { %>
+                <div class="card mt-4 mb-4" style="width: 18rem;">
+                    
+                    <img src="<%- blogs.imageUrl %>" alt="">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= blogs.title %></h5>
+                    <a href="/blog/<%= blogs._id %>" class="btn btn-primary">View </a>
+                    </div>
+                </div>
+            <% }) %>
+        
+                
+        <% } %>
+    </div>
+        
+    
+    
+    
+    
+    <%- include('./components/script') %>
+</body>
+</html>

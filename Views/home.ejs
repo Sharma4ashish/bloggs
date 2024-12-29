@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./components/nav') %>
+    <% if (locals.user) { %>
+        <%- user.name %>
+     
+    <% } %>
+    
+
+    <div class="ashish container mt-4 bg-grey ">
+        <% if (locals.blogs) { %>
+            <% blogs.forEach(blog => { %>
+                <div class="card mt-4 mb-4" style="width: 18rem;">
+                    
+                    <div class="card-body">
+                    <h5 class="card-title"><%= blog.title %></h5>
+                    <p class="card-text"><%=  %></p>
+                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">View </a>
+                    </div>
+                </div>
+            <% }) %>
+        
+                
+        <% } %>
+    </div>
+    
+    <%- include('./components/script') %>
+</body>
+</html>
